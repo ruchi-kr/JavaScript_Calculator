@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- required meta tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- title of the page -->
+    <title>calculator</title>
+    <!-- linked to bootstrap cdn css file -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <!-- link to font-awesome cdn -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- including calculator image as a favicon to this page -->
+    <link rel="icon" type="image/png" href="./image/favicon.png">
+    <!-- embedded css -->
+    <style>
+        body {
+            background-image: url(./image/bg-image.jpg);
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+        }
+
+        .container {
+            backdrop-filter: blur(8px);
+            /* This is for chrome browser. This won't work on firefox. */
+            -webkit-backdrop-filter: blur(8px);
+            /* This is for firefox browser. This won't work on windows. */
+        }
+
+        .button:hover {
+            background-color: rgb(136, 248, 0);
+            color: black;
+        }
+
+        select,
+        input::placeholder {
+            color: rgb(243, 2, 203);
+            font-family: cursive;
+            font-weight: bold;
+        }
+
+        input[type=number] {
+            color: rgb(28, 35, 169);
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container border border-2 border-white rounded-4" style="margin-top:19vh;">
+        <!-- 1st row -->
+        <!-- title -->
+        <div class="row mb-5 mt-5">
+            <div class="col-12 d-flex justify-content-center">
+                <h1 class="fw-bold text-light"><span style="text-shadow: 5px 5px rgb(243, 2, 203);">JavaScript
+                    </span><span style="text-shadow: 5px 5px rgb(2, 2, 243);">Calculator</span></h1>
+            </div>
+        </div>
+        <!-- 2nd row -->
+        <div class="row">
+            <!-- all clear button -->
+            <!-- clearData() function has been called here -->
+            <div class="col-1">
+                <button class="btn btn-dark button" type="Submit" onclick="clearData()" data-toggle="tooltip"
+                    data-placement="top" title="Clear Screen"> AC </button>
+            </div>
+
+            <!-- alert divs to display alert messages -->
+            <!-- useme again alert -->
+            <div class="alert alert-info col-lg-3 col-md-4 col-8 m-auto p-1 text-center" id="useme" role="alert"
+                style="display: none;">
+                <i class="fa-solid fa-circle-info"></i>
+                Use me Again. I am Smart <i class="fa-regular fa-face-grin-wink"></i>.
+            </div>
+            <!-- keep calculating alert -->
+            <div class="alert alert-success col-lg-3 col-md-4 col-8 m-auto p-1 text-center" id="success" role="alert"
+                style="display: none;">
+                <i class="fa-solid fa-circle-check"></i>
+                <em> YAY </em>! Keep Calculating.
+            </div>
+            <!-- undefined alert -->
+            <div class="alert alert-danger col-lg-3 col-md-4 col-8 m-auto p-1 text-center" id="undef" role="alert"
+                style="display: none;">
+                <i class="fa-solid fa-circle-xmark"></i>
+                Oops! Undefined.
+            </div>
+            <!-- warning alert -->
+            <div class="alert alert-warning col-lg-4 col-md-6 col-9 m-auto p-1 text-center" id="warning1" role="alert"
+                style="display: none;">
+                <i class="fa-sharp fa-solid fa-circle-exclamation"></i>
+                Enter values & Select Operator.
+            </div>
+            <!-- warning alert -->
+            <div class="alert alert-warning col-lg-3 col-md-4 col-8 m-auto p-1 text-center" id="warning2" role="alert"
+                style="display: none;">
+                <i class="fa-sharp fa-solid fa-circle-exclamation"></i>
+                Enter values.
+            </div>
+            <!-- warning alert -->
+            <div class="alert alert-warning col-lg-3 col-md-4 col-8 m-auto p-1 text-center" id="warning3" role="alert"
+                style="display: none;">
+                <i class="fa-sharp fa-solid fa-circle-exclamation"></i>
+                Select Operator to Calculate.
+            </div>
+        </div>
+       
+        <!-- 3rd row -->
+        <!--contains number1, operator and number2 input fields-->
+        <div class="row text-center mb-5 mt-3">
+            <!-- clearResult() function has been called here -->
+            <div class="col-lg-4 col-md-4 col-12">
+                <label for="num1" class="text-light mb-2">Number 1</label><br>
+                <input type="number" name="num1" placeholder="Enter value" inputmode="numeric" id="num1"
+                    class="input-group input-group-sm" onchange="clearResult()" oninput="clearResult()">
+            </div>
+            <!-- clearResult() function has been called here -->
+
+            <div class="col-lg-4 col-md-4 col-12">
+                <label for="operator" class="text-light mb-2">Operator</label><br>
+                <select type="text" name="operator" id="operator" class="input-group input-group-sm"
+                    onchange="clearResult()">
+                    <option value="select">Select</option>
+                    <option value="+">+</option>
+                    <option value="-">-</option>
+                    <option value="*">*</option>
+                    <option value="/">/</option>
+                </select>
+            </div>
+            <!-- clearResult() function has been called here -->
+
+            <div class="col-lg-4 col-md-4 col-12">
+                <label for="num2" class="text-light mb-2">Number 2</label><br>
+                <input type="number" name="num2" placeholder="Enter value" inputmode="numeric" id="num2"
+                    class="input-group input-group-sm" onchange="clearResult()" oninput="clearResult()">
+            </div>
+        </div>
+        <!-- 4th row -->
+        <!-- submit button using input tag -->
+        <!-- calculate() function has been called on this -->
+        <div class="row mb-5">
+            <div class="col-12 d-grid gap-2">
+                <input class="btn btn-dark button" type="button" value="Submit" onclick="calculate()"
+                    data-toggle="tooltip" data-placement="top" title="Submit to Calculate">
+            </div>
+        </div>
+        <!-- 5th row -->
+        <!-- result , readonly -->
+        <div class="row d-flex justify-content-center text-center mb-5">
+            <div class="col-lg-6 col-md-6 col-12">
+                <label for="ans" class="text-light mb-2">Answer :</label> <br>
+                <input type="number" placeholder="Result" inputmode="numeric" id="answer" name="answer"
+                    class="input-group input-group-sm" readonly>
+            </div>
+        </div>
+    </div>
+    <!--linked to jquery   -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <!-- linked to script file -->
+    <script src="script.js"></script>
+
+    <!-- linked to bootstrap cdn js file -->
+    <!-- popper js -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+        crossorigin="anonymous"></script>
+    <!-- bootstrap min js -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+        integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+        crossorigin="anonymous"></script>
+
+</body>
+
+</html>

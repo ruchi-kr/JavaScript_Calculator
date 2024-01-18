@@ -1,0 +1,155 @@
+RUCHI KUMARI - 1st sept batch
+
+ruchi.kumari63@gmail.com
+module assignment 4 - JavaScript
+
+
+                              ---- This is a descriptive note of my work----
+
+
+
+--- created one index.html and one script.js file.
+--- created one image file where background image and favicon is saved.
+--- added favicon to my calculator webapp.
+--- used bootstrap for creating layout.
+--- used css to add hovering effects on buttons, set background image and to
+    play with pseudo elements of input fields.
+--- fully responsive calculator, even alert messages.
+--- created 3 input fields, two to take input from user and one is readonly 
+    to display answer.
+--- submit button has onclick property applied and it calculates the result.
+--- On change of input or operator, the result section do gets blank and 
+    there is need to enter values, select operator and then click the submit button again.
+--- have added alert messages using bootstrap that pops-up when input fiels are empty, or operator hasn't
+    been selected. 
+    also, when task is completed and result has come up on the screen and
+    when any number is divided by 0. 
+--- I have added an AC (all clear) button which instantly clears all the input fields and
+    change the operator to select.
+--- in This project, I first created the layout using html, bootstrap and then made it dynamic
+    using javascript.
+--- color theme is pink and blue for this project.
+--- code is properly commented.
+
+
+                             ---- extra----
+                             
+--- I have added an AC (all clear) button which instantly clears all the input fields and
+    change the operator to select.                            
+--- added tooltip features to AC and Submit button.
+--- for this to work included jquery, popper js cdn links.
+--- and as tooltip requires to be enabled. So, used jquery for it. USED JQUERY ONLY FOR THIS.
+--- have added alert messages as well.
+
+--- index.html
+
+
+
+   -- firstly, created 1 container and 5 rows within it.
+   -- added background image and set it using embedded css.
+   -- gave distinct id to each element which i later used in js.
+   -- 1st row has 1 column which is dedicated to title.
+   -- 2nd row has ac button which clears the input fields and change the operator to select option.
+      it also has 6 alerts div whose display is set to none. and it is activated using javascript.   
+   -- 3rd row contains number1, operator and number2 input fields.
+      and placeholder of these has font-color pink. and when input is provided the font-color changes to blue.
+      maintaining pink and blue color scheme that i have choosen here.
+   -- 4th row has submit button which has been created using input tag. onclick property has been added to this button.
+      calculate() function has been called on this button.
+      this button occupies 12/12 columns and is a block button.
+   -- 5th row has answer input field which is read only input field. meaning a user can't manipulate the 
+      answers. 
+   -- 
+
+
+   --alert messages
+
+    icons also has been added to these alert messages.
+    all these alert messages are fully responsive.
+
+     - (Use me Again. I am Smart.)
+       This alert is info alert and it pops-up only when ac button is clicked to clear the screen after use.
+
+     - (YAY! Keep Calculating.)
+       This alert is success alert and it pops-up when a calculation is done to motivate the user.
+
+     - (Oops! Undefined.)
+       This alert is danger alert and it pops-up only when any number is divided by zero.
+       as value is undefined.
+
+     - (Enter Both values & Select Operator.)
+       This alert is warning alert and it pops-up only when user try to submit without entering
+       values and selecting operator.
+
+     - (Enter values.)
+       This alert is warning alert as well and it pops-up only when user try to submit without entering
+       both or one of the values.
+
+     - (Select Operator to Calculate.)
+       This alert is also a warning alert and it pops-up only when user try to submit without selecting
+       operator to perform calculation.
+
+
+
+--- script.js
+
+
+
+   -- created 3 functions named calculate(), clearResult() and clearData().
+   -- used getelementbyid to access html elements.
+   -- both two user friendly input fields and operator selector has onchange and oninput property
+      applied to it. and clearResult() function has been called.
+      onchange and oninput both has been used as user might enter values manually. in that case, oninput would work. 
+   -- AC button has onclick property applied to it and clearData() function has been called on it.
+   -- submit buttton has onclick property applied to it and calculate() function has been called on it.  
+
+   -- function clearResult()
+
+      - this function clears the answer input value and also clears any alert messages that might
+        be on screen as a result of other operations. say succes alert or undefined alert.
+
+   -- function clearData() 
+
+      - this function clears all the 3 input fields values and change the operator value to "select".
+       this also clears any alert messages that might be on screen as a result of other operations. 
+       and "use me again. i am smart" alerts pops up.
+
+ideation- as user would only clearup screen using AC after using it atleast once. so this says use me again.
+
+   -- function calculate()
+
+      - used if else-if else with switch to accomplish this task.
+      - logic of calculate() below-
+      - if no input and no operator 
+        alert pops up
+      - if no input only operator
+        alert pops up
+      - if both input and operator selected then switch code runs
+        which checks the operator and accordingly perform the operations 
+        and the print the result.
+      - if operator is not selected or is set to "select", the default section of switch works
+        and alert pops up saying "select operator"  
+
+   -- used jquery to enable tooltip which has been applied to both buttons AC and Submit.
+   -- 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
